@@ -10,11 +10,7 @@ function start() {
     document.getElementById("estim").value = "";
     document.getElementById("estim").disabled = false;
     document.getElementById("guess").disabled = false;
-    const access = localStorage.getItem("lost");
-    if (access == 1) {
-        alert("nuh uh buddy you lost the test and arent sigma");
-        window.location.href="about:blank";
-    }
+
 
 }
 
@@ -33,15 +29,12 @@ function guess() {
         document.getElementById("guess").disabled = true;
     } else if (attemptsLeft === 0) {
         document.getElementById("message").innerText = `Out of attempts. The number was ${secretNumber}. you failed so you arent a sigma`;
-        localStorage.setItem("lost","1");
         document.getElementById("estim").disabled = true;
         document.getElementById("estim").value = ""
         document.getElementById("guess").disabled = true;
-        alert("banned from playing");
-        window.location.href="about:blank";
         
     } else {
         let hint = guess < secretNumber ? "higher" : "lower";
-        document.getElementById("message").innerText = `Incorrect. Try a ${hint} number. Attempts left: ${attemptsLeft}. dont lose or you get banned.`;
+        document.getElementById("message").innerText = `Incorrect. Try a ${hint} number. Attempts left: ${attemptsLeft}. dont lose.`;
     }
 }
